@@ -90,12 +90,16 @@ def print_tree(head):
         for token in head["Children"]:
             print_tree(token)
 
+def compile_to_python(ast):
+    ...
+
 def main(src):
     tokens = compile_to_encoded_tokens(src)
     tree = generate_tree(tokens)
     python_code = compile_to_python(tree)
     with open("output.py", "w", encoding="utf-8") as f:
         f.write(python_code)
+
 if __name__ == "__main__":
     args = sys.argv
     global source
